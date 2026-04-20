@@ -1,0 +1,15 @@
+{
+  "name": "live-meeting-copilot",
+  "version": "1.0.0",
+  "description": "Monorepo for Live Meeting Copilot",
+  "private": true,
+  "scripts": {
+    "install:all": "npm install --prefix client && npm install --prefix server",
+    "dev": "concurrently \"npm run dev --prefix client\" \"npm run dev --prefix server\"",
+    "start:server": "npm start --prefix server",
+    "build:client": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

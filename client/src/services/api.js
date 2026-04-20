@@ -1,6 +1,7 @@
 // Use VITE_API_BASE for separate deployment (e.g., https://api.yourdomain.com/api)
-// or default to relative "/api" for same-domain deployment.
-const API_BASE = import.meta.env.VITE_API_BASE || "/api";
+// We trim any trailing slash to ensure clean endpoint paths.
+const rawBase = import.meta.env.VITE_API_BASE || "/api";
+const API_BASE = rawBase.endsWith("/") ? rawBase.slice(0, -1) : rawBase;
 
 /**
  * Transcribe an audio blob via the backend.
