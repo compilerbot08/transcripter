@@ -17,8 +17,15 @@ export async function transcribeAudio(audioBlob, apiKey) {
   });
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: "Transcription failed" }));
-    throw new Error(err.error || `Transcription failed (${res.status})`);
+    const errorText = await res.text().catch(() => "Unknown error");
+    let errorMessage = `Transcription failed (${res.status})`;
+    try {
+      const errorJson = JSON.parse(errorText);
+      errorMessage = errorJson.error || errorMessage;
+    } catch {
+      // Not JSON, use default fallback with status code
+    }
+    throw new Error(errorMessage);
   }
 
   return res.json();
@@ -35,8 +42,15 @@ export async function generateSuggestions(apiKey, transcript, systemPrompt) {
   });
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: "Suggestion generation failed" }));
-    throw new Error(err.error || `Suggestions failed (${res.status})`);
+    const errorText = await res.text().catch(() => "Unknown error");
+    let errorMessage = `Suggestions failed (${res.status})`;
+    try {
+      const errorJson = JSON.parse(errorText);
+      errorMessage = errorJson.error || errorMessage;
+    } catch {
+      // Not JSON
+    }
+    throw new Error(errorMessage);
   }
 
   return res.json();
@@ -53,8 +67,15 @@ export async function sendChatMessage(apiKey, message, transcript, systemPrompt,
   });
 
   if (!res.ok) {
-    const err = await res.json().catch(() => ({ error: "Chat failed" }));
-    throw new Error(err.error || `Chat failed (${res.status})`);
+    const errorText = await res.text().catch(() => "Unknown error");
+    let errorMessage = `Chat failed (${res.status})`;
+    try {
+      const errorJson = JSON.parse(errorText);
+      errorMessage = errorJson.error || errorMessage;
+    } catch {
+      // Not JSON
+    }
+    throw new Error(errorMessage);
   }
 
   return res.json();

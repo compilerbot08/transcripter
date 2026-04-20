@@ -10,7 +10,7 @@ const chatRoutes = require("./routes/chat");
 const exportRoutes = require("./routes/export");
 
 const app = express();
-const PORT = process.env.PORT || 3001;
+const PORT = process.env.PORT || 3005;
 
 // Middleware
 app.use(cors({
