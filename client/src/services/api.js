@@ -1,4 +1,6 @@
-const API_BASE = "/api";
+// Use VITE_API_BASE for separate deployment (e.g., https://api.yourdomain.com/api)
+// or default to relative "/api" for same-domain deployment.
+const API_BASE = import.meta.env.VITE_API_BASE || "/api";
 
 /**
  * Transcribe an audio blob via the backend.
