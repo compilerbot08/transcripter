@@ -1,0 +1,17 @@
+{
+  "name": "live-meeting-copilot-server",
+  "version": "1.0.0",
+  "description": "Backend API for Live Meeting Copilot",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "node --watch index.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^17.4.2",
+    "express": "^4.21.0",
+    "groq-sdk": "^0.8.0",
+    "multer": "^1.4.5-lts.1"
+  }
+}

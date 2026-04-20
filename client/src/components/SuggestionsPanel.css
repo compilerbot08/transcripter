@@ -1,0 +1,70 @@
+.suggestions-panel {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  background: var(--bg-primary);
+  border-right: 1px solid var(--border-primary);
+}
+
+.suggestions-panel__body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--space-md);
+}
+
+.suggestions-panel__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  text-align: center;
+  color: var(--text-secondary);
+  gap: var(--space-xs);
+}
+
+.suggestions-panel__empty-icon {
+  font-size: 2rem;
+  margin-bottom: var(--space-sm);
+}
+
+.suggestions-panel__generating {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: var(--font-size-xs);
+  color: var(--accent-primary);
+}
+
+/* Batches */
+.suggestions-panel__batches {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-xl);
+}
+
+.suggestion-batch__header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  margin-bottom: var(--space-sm);
+}
+
+.suggestion-batch__time {
+  font-size: var(--font-size-xs);
+  color: var(--text-muted);
+  white-space: nowrap;
+  font-family: "Courier New", monospace;
+}
+
+.suggestion-batch__divider {
+  flex: 1;
+  height: 1px;
+  background: var(--border-primary);
+}
+
+.suggestion-batch__cards {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
